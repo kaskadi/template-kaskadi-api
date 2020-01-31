@@ -26,7 +26,7 @@ resources:
       Type: AWS::ApiGateway::RestApi
       Properties:
         Name: ${self:service.name}
-    # Uncomment the block below if you wanna add an API Gateway cognito authorizer
+    # Uncomment the block below if you want to add an API Gateway cognito authorizer
     # CognitoAuthorizer:
     #   DependsOn:
     #     - ApiGatewayRestApi
