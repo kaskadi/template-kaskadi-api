@@ -23,7 +23,7 @@ provider:
 
 resources:
   Resources:
-    # API Gateway. The ID of this resources needs to be ApiGatewayRestApi because that's the way the serverless-aws-documentation plugin is refering to it (thanks Delivery Hero...)
+    # API Gateway. The ID of this resources needs to be ApiGatewayRestApi because that's the way the serverless-aws-documentation plugin is refering to it
     ApiGatewayRestApi:
       Type: AWS::ApiGateway::RestApi
       Properties:
