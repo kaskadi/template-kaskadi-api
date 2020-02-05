@@ -2,13 +2,16 @@
 
 # CD configuration
 
-In order for the _GitHub Actions_ to run properly, we need to define 2 secrets in the repository:
+In order for the _GitHub Actions_ to run properly, we need to define 3 secrets in the repository:
 - `AWS_KEY_ID`
 - `AWS_KEY_SECRET`
+- `SLS_DEPLOY_BUCKET`
 
-Those are the credentials of an IAM user which can deploy the necessary resources (can have Admin policy if need be, but can also have only limited rights to only be able to deploy API + related resources)
+`AWS_KEY_ID` & `AWS_KEY_SECRET` are the credentials of an IAM user which can deploy the necessary resources (can have Admin policy if need be, but can also have only limited rights to only be able to deploy API + related resources)
 
 With those environment variables set, `serverless` can now deploy to AWS using this IAM user.
+
+`SLS_DEPLOY_BUCKET` is the name of the bucket where the `serverless` package for _Cloud Formation_ should be deployed.
 
 # Add new lambdas
 

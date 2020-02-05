@@ -18,6 +18,8 @@ provider:
   stackName: ${self:service.name}-stack
   stage: ${opt:stage, 'prod'}
   region: ${opt:region, 'eu-central-1'}
+  deploymentBucket:
+    name: ${env:SLS_DEPLOY_BUCKET}
 
 resources:
   Resources:
