@@ -41,7 +41,7 @@ resources:
     #       Ref: ApiGatewayRestApi
     #     Type: COGNITO_USER_POOLS
     #     ProviderARNs:
-    #       - !ImportValue KaskadiCognitoUserPoolARN
+    #       - # ARN of your Cognito User Pool
   Outputs:
     RestAPIGatewayId:
       Value:
