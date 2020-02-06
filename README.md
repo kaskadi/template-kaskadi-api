@@ -36,7 +36,7 @@ Before pushing for the first time, please setup secrets on this repository.
 
 # Disclaimer
 
-On first deployment you may encounter an error message related to an error with your stage.
+On first deployment you may encounter an error message related to an issue with your stage.
 
 **This is normal** and should not alarm you. Your API will be properly deployed.
 
