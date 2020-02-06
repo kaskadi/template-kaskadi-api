@@ -1,8 +1,8 @@
-**Badges here**
+:point_right: **Badges here** :point_left:
 
 ****
 
-**This section can be deleted when done with all the preliminary work**
+❌ **This section can be deleted when done with all the preliminary work** ❌
 
 # :computer: Creating a new API from this template :computer:
 
@@ -34,7 +34,7 @@ Before pushing for the first time, please setup secrets on this repository.
 
 ****
 
-# Disclaimer
+# :warning: Disclaimer :warning:
 
 On first deployment you may encounter an error message related to an issue with your stage.
 
@@ -49,4 +49,4 @@ In order to add new endpoints, you can:
 2. develop your lambda
 3. configure its `serverless.yml` so that it can attach itself to this API (see `template-kaskadi-lambda` repository for more details)
 
-**Your documentation here**
+:point_down: **Your documentation here** :point_down:
