@@ -34,6 +34,14 @@ Before pushing for the first time, please setup secrets on this repository.
 
 ****
 
+# First deployment with custom domain
+
+When deploying for the first time with a custom domain (assuming you already installed dependencies with `npm i`):
+1. either run `serverless create_domain` from your CLI using your AWS profile OR edit the command used by the `deploy` action to `serverless create_domain`
+2. when the custom domain is created, you can now run `sls deploy -v` either from your CLI OR edit the command used by the `deploy` action to `sls deploy -v`
+
+**Note:** if you choose to deploy via your CLI for the first deployment, please be aware that not editing the `deploy` action will lead to non automated deployment.
+
 # :warning: Disclaimer :warning:
 
 On first deployment you may encounter an error message related to an issue with your stage.
