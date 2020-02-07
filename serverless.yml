@@ -17,6 +17,7 @@ custom:
     domainName: api.klimapartner.net # you can specify here a domain name
     stage: ${opt:stage, 'prod'}
     # basePath: example -> this is the base path that prepends all your endpoints
+    endpointType: regional
 
 provider:
   name: aws
@@ -30,7 +31,7 @@ provider:
 
 resources:
   Resources:
-    # API Gateway. The ID of this resources needs to be ApiGatewayRestApi because that's the way the serverless-aws-documentation plugin is refering to it
+    # The ID of this resources needs to be ApiGatewayRestApi because that's the way the serverless-aws-documentation plugin is refering to it
     ApiGatewayRestApi:
       Type: AWS::ApiGateway::RestApi
       Properties:
