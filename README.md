@@ -42,7 +42,7 @@ Custom domain creation is done using the _Serverless_ plugin [`serverless-domain
 
 When deploying for the first time with a custom domain (assuming you already installed dependencies with `npm i`):
 1. either run `serverless create_domain` from your CLI using your AWS profile OR edit the command used by the `deploy` action to `serverless create_domain`
-2. when the custom domain is created, you can now run `sls deploy -v` either from your CLI OR edit the command used by the `deploy` action to `sls deploy -v`
+2. when the custom domain is created (you can see the state [here](https://eu-central-1.console.aws.amazon.com/apigateway/home?region=eu-central-1#/custom-domain-names)), run `sls deploy -v` either from your CLI OR edit the command used by the `deploy` action to `sls deploy -v`
 
 **Notes:**
 - if you choose to deploy via your CLI for the first deployment, please be aware that not editing the `deploy` action will lead to non automated deployment
