@@ -36,11 +36,17 @@ Before pushing for the first time, please setup secrets on this repository.
 
 # First deployment with custom domain
 
+Custom domain creation is done using the _Serverless_ plugin [`serverless-domain-manager`](https://github.com/amplify-education/serverless-domain-manager).
+
+**Before using a custom domain for your API** please make sure that you generated a certificate for this domain. To do so, follow [this](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) documentation. For `Edge` type of API, this certificate needs to be located in `us-east-1` region.
+
 When deploying for the first time with a custom domain (assuming you already installed dependencies with `npm i`):
 1. either run `serverless create_domain` from your CLI using your AWS profile OR edit the command used by the `deploy` action to `serverless create_domain`
 2. when the custom domain is created, you can now run `sls deploy -v` either from your CLI OR edit the command used by the `deploy` action to `sls deploy -v`
 
-**Note:** if you choose to deploy via your CLI for the first deployment, please be aware that not editing the `deploy` action will lead to non automated deployment.
+**Notes:**
+- if you choose to deploy via your CLI for the first deployment, please be aware that not editing the `deploy` action will lead to non automated deployment
+- in case you need to delete your domain, run `serverless delete_domain`
 
 # :warning: Disclaimer :warning:
 

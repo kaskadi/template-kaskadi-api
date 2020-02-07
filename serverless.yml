@@ -17,7 +17,6 @@ custom:
     domainName: api.klimapartner.net # you can specify here a domain name
     stage: ${opt:stage, 'prod'}
     # basePath: example -> this is the base path that prepends all your endpoints
-    certificateName: '*.klimapartner.net'
 
 provider:
   name: aws
