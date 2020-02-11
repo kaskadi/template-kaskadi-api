@@ -43,6 +43,10 @@ Custom domain creation is done using the _Serverless_ plugin [`serverless-domain
 When deploying for the first time with a custom domain (assuming you already installed dependencies with `npm i`):
 1. either run `serverless create_domain` from your CLI using your AWS profile OR edit the command used by the `deploy` action to `serverless create_domain`
 2. when the custom domain is created (you can see the state [here](https://eu-central-1.console.aws.amazon.com/apigateway/home?region=eu-central-1#/custom-domain-names)), run `sls deploy -v` either from your CLI OR edit the command used by the `deploy` action to `sls deploy -v`
+3. **temporary manual step (until fix found)**: to fix the routing:
+  1. go to [Route 53](https://console.aws.amazon.com/route53/home?region=eu-central-1) and then select the _Hosted Zone_ related to the domain you are using for your API
+  2. remove the _AAAA_ record created by the tool for your domain
+  3. click on the _A_ record and replace the alias target (should be `{ID}.cloudfront.net.`) by `{API-ID}.execute-api.{REGION}.amazonaws.com` where `API-ID` is the ID of your API and `REGION` is the region where your API is hosted
 
 **Notes:**
 - if you choose to deploy via your CLI for the first deployment, please be aware that not editing the `deploy` action will lead to non automated deployment

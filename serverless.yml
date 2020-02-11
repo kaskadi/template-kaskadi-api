@@ -13,11 +13,11 @@ custom:
         title: ${self:service.name}
         description: Template API
   # remove this section if you do not wish to use a custom domain
-  customDomain:
-    domainName: api.klimapartner.net # you can specify here a domain name
-    stage: ${opt:stage, 'prod'}
-    # basePath: example -> this is the base path that prepends all your endpoints
-    endpointType: regional
+  # customDomain:
+  #   domainName: api.klimapartner.net # you can specify here a domain name
+  #   stage: ${opt:stage, 'prod'}
+  #   basePath: example # this is the base path that prepends all your endpoints
+  #   endpointType: edge
 
 provider:
   name: aws
