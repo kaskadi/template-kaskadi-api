@@ -71,4 +71,6 @@ If the custom domain you wish to use hasn't been created yet (list of custom dom
 
 For this, simply follow **_Case 1_** from **_Step 3_**.
 
+**Attention:** a domain cannot be mapped with more than one _A Record_ at a time. This means that for each API you will need a custom domain if you wish to use one.
+
 :point_down: **Your documentation here** :point_down:
