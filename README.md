@@ -34,24 +34,6 @@ Before pushing for the first time, please setup secrets on this repository.
 
 ****
 
-# First deployment with custom domain
-
-Custom domain creation is done using the _Serverless_ plugin [`serverless-domain-manager`](https://github.com/amplify-education/serverless-domain-manager).
-
-**Before using a custom domain for your API** please make sure that you generated a certificate for this domain. To do so, follow [this](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) documentation. For `Edge` type of API, this certificate needs to be located in `us-east-1` region.
-
-When deploying for the first time with a custom domain (assuming you already installed dependencies with `npm i`):
-1. either run `serverless create_domain` from your CLI using your AWS profile OR edit the command used by the `deploy` action to `serverless create_domain`
-2. when the custom domain is created (you can see the state [here](https://eu-central-1.console.aws.amazon.com/apigateway/home?region=eu-central-1#/custom-domain-names)), run `sls deploy -v` either from your CLI OR edit the command used by the `deploy` action to `sls deploy -v`
-3. **temporary manual step (until fix found)**: to fix the routing:
-  1. go to [Route 53](https://console.aws.amazon.com/route53/home?region=eu-central-1) and then select the _Hosted Zone_ related to the domain you are using for your API
-  2. remove the _AAAA_ record created by the tool for your domain
-  3. click on the _A_ record and replace the alias target (should be `{ID}.cloudfront.net.`) by `{API-ID}.execute-api.{REGION}.amazonaws.com` where `API-ID` is the ID of your API and `REGION` is the region where your API is hosted
-
-**Notes:**
-- if you choose to deploy via your CLI for the first deployment, please be aware that not editing the `deploy` action will lead to non automated deployment
-- in case you need to delete your domain, run `serverless delete_domain`
-
 # :warning: Disclaimer :warning:
 
 On first deployment you may encounter an error message related to an issue with your stage.
@@ -66,5 +48,23 @@ In order to add new endpoints, you can:
 1. use `template-kaskadi-lambda` to create a new Lambda from our Lambda template
 2. develop your lambda
 3. configure its `serverless.yml` so that it can attach itself to this API (see `template-kaskadi-lambda` repository for more details)
+
+# Using custom domain for your API
+
+_For all custom domains you will need a certificate for this domain. Please make sure that you have the proper certificate generated, else create one associated with your domain. All this can be done [here](https://console.aws.amazon.com/acm/home?region=us-east-1#/)_
+
+**Case 1: creating a new custom domain for API**
+
+If the custom domain you wish to use hasn't been created yet (list of custom domains [here](https://eu-central-1.console.aws.amazon.com/apigateway/home?region=eu-central-1#/custom-domain-names)).
+
+1. Go [here](https://eu-central-1.console.aws.amazon.com/apigateway/home?region=eu-central-1#/custom-domain-names) and click on _Create Custom Domain Name_
+2. Configure your domain as you wish to
+3. Once the domain is created and initialized, go to [Route 53](https://console.aws.amazon.com/route53/home?region=eu-central-1)
+4. Go into the _Hosted Zone_ for the domain you wish to use and create a new _A Record_.
+5. For this record, you should toggle the _Alias_ option, give for _name_ the custom domain name you wish to use and select for _Alias target_ the API you want to map to this domain. You may need to copy paste the base URL to that API to make this work
+
+**Case 2: using an existing custom domain**
+
+For this, simply follow **_Case 1_** from **_Step 3_**.
 
 :point_down: **Your documentation here** :point_down:
