@@ -69,8 +69,10 @@ If the custom domain you wish to use hasn't been created yet (list of custom dom
 
 **Case 2: using an existing custom domain**
 
-For this, simply follow **_Case 1_** from **_Step 3_**.
+1. Go [here](https://eu-central-1.console.aws.amazon.com/apigateway/home?region=eu-central-1#/custom-domain-names)
+2. Click on _Edit_ for the custom domain you wish to use
+3. Add a base path you wish to map your API to for this domain and then select the API & its stage in the dropdown menus
 
-**Attention:** a domain cannot be mapped with more than one _A Record_ at a time. This means that for each API you will need a custom domain if you wish to use one.
+**Attention:** you can only use an existing custom domain if this domain doesn't have already an empty path as base path.
 
 :point_down: **Your documentation here** :point_down:
