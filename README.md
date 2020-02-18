@@ -11,7 +11,7 @@
 # :computer: Creating a new API from this template :computer:
 
 **Checklist (delete items when done)**
-- create a new repository and choose this repository (`template-kaskadi-api`) as template
+- create a new repository and choose this repository as template
 - clone the new repository to a local working copy
 - set secrets up ([help](#Set-secrets-up))
 - install all dependencies via `npm i`
