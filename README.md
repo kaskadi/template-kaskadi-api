@@ -1,6 +1,6 @@
 **GitHub Actions workflows status**
 
-![](https://img.shields.io/github/workflow/status/kaskadi/template-kaskadi-api/deploy)
+![](https://img.shields.io/github/workflow/status/kaskadi/template-kaskadi-api/deploy?label=deployed&logo=Amazon%20AWS)
 
 :point_right: **Badges here** :point_left:
 
