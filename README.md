@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/github/workflow/status/kaskadi/template-kaskadi-api/deploy?label=deployed&logo=Amazon%20AWS)
 <!-- Only for branches which are not release/** or master -->
-<!-- ![](https://img.shields.io/github/workflow/status/kaskadi/template-kaskadi-api/test?label=test&logo=Amazon%20AWS) -->
+<!-- ![](https://img.shields.io/github/workflow/status/kaskadi/template-kaskadi-api/test?label=test&logo=mocha) -->
 
 :point_right: **Badges here** :point_left:
 
