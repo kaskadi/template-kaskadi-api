@@ -58,6 +58,3 @@ resources:
     #     Ref: CognitoAuthorizer
     #   Export:
     #     Name: CognitoAuthorizerId
-
-
-    # test
