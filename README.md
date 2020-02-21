@@ -34,7 +34,7 @@ It is known that this action sometimes does not run (see [here](https://github.c
 - set secrets up ([help](#Set-secrets-up))
 - install all dependencies via `npm i`
 - configure your API in its `serverless.yml` ([here](./serverless.yml)) config file for deployment
-- when you feel like your API is ready for deployment, go [here](./.github/workflows/deploy.yml) and change the `command` field to `deploy -v`
+- when you feel like your API is ready for deployment, go [here](./.github/workflows/deploy.yml) and change the `command` field with `--version` value to `deploy -v`
 
 **Attention:** if you wish to use kaskadi's CLI tools, make sure to have `kaskadi-cli` installed globally (`npm i -g kaskadi-cli`)
 
