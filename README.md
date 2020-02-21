@@ -56,7 +56,7 @@ Before pushing for the first time, please setup secrets on this repository.
 
 ****
 
-# :warning: Disclaimer :warning:
+# :warning: Attention :warning:
 
 On first deployment you may encounter an error message related to an issue with your stage.
 
