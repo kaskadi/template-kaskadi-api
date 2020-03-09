@@ -4,7 +4,9 @@
   "description": "",
   "main": "serverless.yml",
   "scripts": {
-    "test": "echo \"No test script defined.\""
+    "test": "echo \"No test script defined.\"",
+    "dev-server.start": "pm2 start tools/devserver/index.js --name devserver --watch",
+    "dev-server.stop": "pm2 stop devserver && pm2 delete devserver"
   },
   "repository": {
     "type": "git",

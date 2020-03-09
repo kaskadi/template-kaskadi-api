@@ -4,7 +4,7 @@
     "name": "${self:service.name}-hello-world-lambda",
     "package": {
      "include": [
-      "lambdas/hello-world/hello-world.js",
+      "lambdas/hello-world/index.js",
       "lambdas/hello-world/node_modules/**"
      ]
     },
