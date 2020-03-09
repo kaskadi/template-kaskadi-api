@@ -51,10 +51,8 @@ Before pushing for the first time, please setup secrets on this repository.
 **What secrets need to be set:**
 - `AWS_KEY_ID`
 - `AWS_KEY_SECRET`
-- `SLS_DEPLOY_BUCKET`
 
 `AWS_KEY_ID` & `AWS_KEY_SECRET`: those are the credentials of a role which has enough permission to publish a new API.
-`SLS_DEPLOY_BUCKET`: this is the bucket where the _Serverless_ build should be uploaded at deployment.
 
 ****
 

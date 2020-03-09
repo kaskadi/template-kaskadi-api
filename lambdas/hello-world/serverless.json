@@ -1,11 +1,11 @@
 {
  "HelloWorld": {
-    "handler": "hello-world.handler",
+    "handler": "lambdas/hello-world/hello-world.handler",
     "name": "${self:service.name}-hello-world-lambda",
     "package": {
      "include": [
-      "hello-world.js",
-      "node_modules/**"
+      "lambdas/hello-world/hello-world.js",
+      "lambdas/hello-world/node_modules/**"
      ]
     },
     "events": [

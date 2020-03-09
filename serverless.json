@@ -1,11 +1,17 @@
 {
- "service": {
+  "service": {
     "name": "template-kaskadi-api"
- },
- "plugins": [
+  },
+  "package": {
+    "individually": true,
+    "exclude": [
+     "**/**"
+    ]
+  },
+  "plugins": [
     "serverless-aws-documentation"
- ],
- "custom": {
+  ],
+  "custom": {
     "documentation": {
        "api": {
           "info": {
@@ -15,8 +21,8 @@
           }
        }
     }
- },
- "provider": {
+  },
+  "provider": {
     "name": "aws",
     "runtime": "nodejs10.x",
     "stackName": "${self:service.name}-stack",
@@ -26,6 +32,6 @@
        "name": "kaskadi-serverless-deployment-bucket"
     },
     "deploymentPrefix": "${self:service.name}"
- },
- "functions": "${file(./lambdas/hello-world/serverless.json)}"
+  },
+  "functions": "${file(./lambdas/hello-world/serverless.json)}"
 }
