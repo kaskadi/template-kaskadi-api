@@ -20,7 +20,6 @@ provider:
   region: eu-central-1
   deploymentBucket:
     name: 'kaskadi-serverless-deployment-bucket'
-  deploymentPrefix: ${self:service.name}
 
 functions:
   ${file(./lambdas/hello-world/serverless.yml)}
