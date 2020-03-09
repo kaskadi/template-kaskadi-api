@@ -1,19 +1,21 @@
 {
-  "handler": "lambdas/hello-world/hello-world.handler",
-  "name": "${self:service.name}-hello-world-lambda",
-  "package": {
-    "include": [
-      "lambdas/hello-world/hello-world.js",
-      "lambdas/hello-world/node_modules/**"
-    ]
-  },
-  "events": [
-    {
-      "http": {
-        "method": "get",
-        "path": "hello",
-        "cors": true
+ "HelloWorld": {
+    "handler": "lambdas/hello-world/index.handler",
+    "name": "${self:service.name}-hello-world-lambda",
+    "package": {
+      "include": [
+        "lambdas/hello-world/index.js",
+        "lambdas/hello-world/node_modules/**"
+      ]
+    },
+    "events": [
+      {
+        "http": {
+          "method": "get",
+          "path": "hello",
+          "cors": true
+        }
       }
-    }
-  ]
+    ]
+  }
 }

@@ -5,6 +5,8 @@
   "main": "serverless.yml",
   "scripts": {
     "test": "echo \"No test script defined.\"",
+    "dev-server.start": "pm2 start tools/devserver/index.js --name devserver --watch",
+    "dev-server.stop": "pm2 stop devserver && pm2 delete devserver",
     "add-lambda": "node ./tools/add-lambda/add-lambda.js",
     "update-version": "node ./tools/update-version/update-version.js"
   },
