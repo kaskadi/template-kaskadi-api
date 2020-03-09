@@ -1,0 +1,14 @@
+HelloWorld:
+  handler: hello-world.handler
+  name: ${self:service.name}-hello-world-lambda
+  package:
+    include:
+      - 'hello-world.js'
+      - 'node_modules/**'
+  # environment:
+    # any environment variables we need
+  events:
+    - http:
+        method: get
+        path: hello
+        cors: true
