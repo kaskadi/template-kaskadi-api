@@ -56,22 +56,16 @@ Before pushing for the first time, please setup secrets on this repository.
 
 ****
 
-# :warning: Attention :warning:
-
-On first deployment you may encounter an error message related to an issue with your stage.
-
-**This is normal** and should not alarm you. Your API will be properly deployed.
-
-The reason behind is that `serverless` seems to try to look for lambda functions to deploy in the given stage with your API. Since in this case there are no functions, the deployment send back an error message as feedback. But this behavior is not a problem on _Cloud Formation_ level and does not prevent _AWS_ from spinning up your _API Gateway_.
-
-**After your first deployment:** please uncomment the block inside of [deploy action](./.github/workflows/deploy.yml) related to the test step so that testing pre deployment is enabled for your `deploy` action.
-
 # Add new endpoints
 
-In order to add new endpoints, you can:
-1. use `template-kaskadi-lambda` to create a new Lambda from our Lambda template
-2. develop your lambda
-3. configure its `serverless.yml` so that it can attach itself to this API (see `template-kaskadi-lambda` repository for more details)
+In order to add new endpoints:
+1. Go to the root of your API repository
+2. Run `npm run add-lambda <lambda_name> <http_method> <path/to/your/lambda>`
+3. You can start working on your endpoint inside of `lambdas/<lambda_name>` that should be created once the command has ran
+
+# Upgrade API version
+
+To update your API version, run `npm run upgrade-version <version_option>`. This takes the same argument as `npm version` (see [here](https://docs.npmjs.com/cli/version)). It will update for you the main `package.json` as well as `serverless.json` but also all `package.json` for all endpoints.
 
 # Using custom domain for your API
 
