@@ -17,9 +17,9 @@ provider:
   runtime: nodejs10.x
   stackName: ${self:service.name}-stack
   stage: ${opt:stage, 'prod'}
-  region: ${opt:region, 'eu-central-1'}
+  region: eu-central-1
   deploymentBucket:
-    name: ${env:SLS_DEPLOY_BUCKET, 'kaskadi-serverless-deployment-bucket'}
+    name: 'kaskadi-serverless-deployment-bucket'
   deploymentPrefix: ${self:service.name}
 
 functions:
