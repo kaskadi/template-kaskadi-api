@@ -4,7 +4,9 @@
   "description": "",
   "main": "serverless.yml",
   "scripts": {
-    "test": "echo \"No test script defined.\""
+    "test": "echo \"No test script defined.\"",
+    "add-lambda": "node ./tools/add-lambda/add-lambda.js",
+    "update-version": "node ./tools/update-version/update-version.js"
   },
   "repository": {
     "type": "git",

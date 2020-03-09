@@ -5,7 +5,7 @@
   "package": {
     "individually": true,
     "exclude": [
-     "**/**"
+      "**/**"
     ]
   },
   "plugins": [
@@ -13,25 +13,28 @@
   ],
   "custom": {
     "documentation": {
-       "api": {
-          "info": {
-             "version": "0.0.1",
-             "title": "${self:service.name}",
-             "description": "Template API"
-          }
-       }
+      "api": {
+        "info": {
+          "version": "1.0.0",
+          "title": "${self:service.name}",
+          "description": "Template API"
+        }
+      }
     }
   },
   "provider": {
     "name": "aws",
     "runtime": "nodejs10.x",
     "stackName": "${self:service.name}-stack",
+    "apiName": "${self:service.name}",
     "stage": "${opt:stage, 'prod'}",
     "region": "eu-central-1",
     "deploymentBucket": {
-       "name": "kaskadi-serverless-deployment-bucket"
+      "name": "kaskadi-serverless-deployment-bucket"
     },
     "deploymentPrefix": "${self:service.name}"
   },
-  "functions": "${file(./lambdas/hello-world/serverless.json)}"
+  "functions": {
+    "HelloWorld": "${file(./lambdas/hello-world/serverless.json)}"
+  }
 }
