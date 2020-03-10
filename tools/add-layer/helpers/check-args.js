@@ -1,7 +1,7 @@
 module.exports = (args) => {
   const displayInfo = {
-    argsName: ['name', 'method', 'path'],
-    semIndex: ['first', 'second', 'third']
+    argsName: ['name'],
+    semIndex: ['first']
   }
   for (i=0; i < displayInfo.argsName.length; i++) {
     if(!args[i]) {

@@ -1,0 +1,10 @@
+{
+  "path": "layers/my-layer",
+  "name": "${self:service.name}-my-layer",
+  "description": "It's a layer",
+  "compatibleRuntimes": [
+    "nodejs10.x",
+    "nodejs12.x"
+  ],
+  "licenseInfo": "MIT"
+}

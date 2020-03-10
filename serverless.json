@@ -31,10 +31,12 @@
     "region": "eu-central-1",
     "deploymentBucket": {
       "name": "kaskadi-serverless-deployment-bucket"
-    },
-    "deploymentPrefix": "${self:service.name}"
+    }
   },
   "functions": {
     "HelloWorld": "${file(./lambdas/hello-world/serverless.json)}"
+  },
+  "layers": {
+    "MyLayer": "${file(./layers/my-layer/serverless.json)}"
   }
 }
