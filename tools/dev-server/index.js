@@ -19,14 +19,22 @@ const app = new Koa()
 // })
 
 function splitHandler (handler) {
-  return [handler.split('.')[0]]
+  const r = handler.split('.')
+  return [r.pop(), r.join('.') + '.js']
 }
 
 let config = JSON.parse(fs.readFileSync(`serverless.json`, 'utf-8'))
 for (func in config.functions) {
   const path = config.functions[func].replace('${file(', '').replace(')}', '')
   let fconf = JSON.parse(fs.readFileSync(path, 'utf-8'))
-  console.log(splitHandler(fconf[func].handler))
+  const ret = splitHandler(fconf[func].handler)
+  const handler = require('../../' + ret[1])[ret[0]]
+  fconf[func].events.forEach(evt => {
+    router.addRoute(evt.http.method.toUpperCase(), `${evt.http.path}`, async (ctx, next) => {
+      ctx.body = await handler(ctx)
+      await next()
+    })
+  })
 }
 
 app.use(router.middleware())
