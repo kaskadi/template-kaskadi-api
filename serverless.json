@@ -24,7 +24,7 @@
   },
   "provider": {
     "name": "aws",
-    "runtime": "nodejs10.x",
+    "runtime": "nodejs12.x",
     "stackName": "${self:service.name}-stack",
     "apiName": "${self:service.name}",
     "stage": "${opt:stage, 'prod'}",
