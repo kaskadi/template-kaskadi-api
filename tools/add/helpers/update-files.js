@@ -1,8 +1,9 @@
 const fs = require('fs')
 
-module.exports = (pathToLayer, data) => {
-  replaceNameInFile(`${pathToLayer}/nodejs/package.json`, '{{name}}', data.name)
-  replaceNameInFile(`${pathToLayer}/serverless.json`, '{{name}}', data.name)
+module.exports = (updates) => {
+  updates.forEach(update => {
+    replaceNameInFile(update.path, update.placeholder, update.value)
+  })
 }
 
 function replaceNameInFile (fileName, oldName, newName) {
