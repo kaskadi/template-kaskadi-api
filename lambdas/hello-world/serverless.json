@@ -1,6 +1,6 @@
 {
  "HelloWorld": {
-    "handler": "lambdas/hello-world/index.handler",
+    "handler": "lambdas/hello-world/index.1.handler",
     "name": "${self:service.name}-hello-world-lambda",
     "package": {
       "include": [
