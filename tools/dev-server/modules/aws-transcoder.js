@@ -86,4 +86,3 @@ function sortToMultiValuedField (ctx, field, single, multiple) {
 //   "body": null,
 //   "isBase64Encoded": false
 // }
-
