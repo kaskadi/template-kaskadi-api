@@ -1,5 +1,5 @@
 {
-  "path": "api-layer",
+  "path": "layer",
   "name": "${self:service.name}-layer",
   "description": "Layer for ${self:service.name}",
   "compatibleRuntimes": [
