@@ -24,7 +24,7 @@
   },
   "provider": {
     "name": "aws",
-    "runtime": "nodejs10.x",
+    "runtime": "nodejs12.x",
     "stackName": "${self:service.name}-stack",
     "apiName": "${self:service.name}",
     "stage": "${opt:stage, 'prod'}",
@@ -32,9 +32,17 @@
     "deploymentBucket": {
       "name": "kaskadi-serverless-deployment-bucket"
     },
-    "deploymentPrefix": "${self:service.name}"
+    "tags": {
+      "app": "your-app-name",
+      "service": "${self:service.name}",
+      "logical-unit": "api-logical-unit",
+      "type": "api, s3, sns, etc."
+    }
   },
   "functions": {
     "HelloWorld": "${file(./lambdas/hello-world/serverless.json)}"
+  },
+  "layers": {
+    "ApiLayer": "${file(./api-layer/serverless.json)}"
   }
 }

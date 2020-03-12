@@ -1,8 +1,8 @@
 const fs = require('fs')
 
-module.exports = (pathToLambda, name) => {
+module.exports = (data) => {
   let config = JSON.parse(fs.readFileSync('serverless.json', 'utf8'))
-  config.functions[snakeToCamel(name)] = `\${file(./${pathToLambda}/serverless.json)}`
+  config[data.prop][snakeToCamel(data.key)] = `\${file(./${data.path}/serverless.json)}`
   fs.writeFileSync('serverless.json', JSON.stringify(config, null, 2), 'utf8')
 }
 
