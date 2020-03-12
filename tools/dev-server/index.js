@@ -14,9 +14,10 @@ let config = JSON.parse(fs.readFileSync(`serverless.json`, 'utf-8'))
 for (func in config.functions) {
   const path = config.functions[func].replace('${file(', '').replace(')}', '')
   let fconf = JSON.parse(fs.readFileSync(path, 'utf-8'))
-  const ret = splitHandler(fconf[func].handler)
+  console.log(func)
+  const ret = splitHandler(fconf.handler)
   const handler = require('../../' + ret[1])[ret[0]]
-  fconf[func].events.forEach(evt => {
+  fconf.events.forEach(evt => {
     router.addRoute(evt.http.method.toUpperCase(), `${evt.http.path}`, async (ctx, next) => {
       ctx.body = await handler(ctx)
       await next()
