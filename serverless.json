@@ -43,6 +43,6 @@
     "HelloWorld": "${file(./lambdas/hello-world/serverless.json)}"
   },
   "layers": {
-    "ApiLayer": "${file(./api-layer/serverless.json)}"
+    "ApiLayer": "${file(./layer/serverless.json)}"
   }
 }
