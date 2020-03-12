@@ -10,7 +10,7 @@
     "dev-server.stop": "pm2 stop dev-server && pm2 delete dev-server",
     "add-lambda": "node ./tools/add/add-lambda/add-lambda.js",
     "update-version": "node ./tools/update-version/update-version.js",
-    "install-layer": "cd api-layer/nodejs && npm i && cd ../../"
+    "install-layer": "cd layer/nodejs && npm i && cd ../../"
   },
   "repository": {
     "type": "git",
