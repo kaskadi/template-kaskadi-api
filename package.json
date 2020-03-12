@@ -9,9 +9,8 @@
     "dev-server.start": "pm2 start tools/dev-server/index.js --name dev-server --watch",
     "dev-server.stop": "pm2 stop dev-server && pm2 delete dev-server",
     "add-lambda": "node ./tools/add/add-lambda/add-lambda.js",
-    "add-layer": "node ./tools/add/add-layer/add-layer.js",
     "update-version": "node ./tools/update-version/update-version.js",
-    "install-layers": "node ./tools/install-layers-dependencies/install-layers-dependencies.js"
+    "install-layer": "cd api-layer/nodejs && npm i && cd ../../"
   },
   "repository": {
     "type": "git",
