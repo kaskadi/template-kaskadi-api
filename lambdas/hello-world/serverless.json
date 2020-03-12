@@ -3,7 +3,7 @@
   "name": "${self:service.name}-hello-world-lambda",
   "layers": [
     {
-      "Ref": "ApiLayer"
+      "Ref": "ApiLayerLambdaLayer"
     }
   ],
   "package": {
