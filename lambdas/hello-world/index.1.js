@@ -1,3 +1,6 @@
+const t2 = require('aws-sdk')
+const client = require('aws-es-client')
+
 module.exports.handler = async (event) => {
   return {
     statusCode: 200,
