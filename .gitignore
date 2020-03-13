@@ -103,4 +103,4 @@ dist
 # TernJS port file
 .tern-port
 
-!layer/nodejs/node_modules/@kaskadi/utils/
+!layer/nodejs/node_modules/@kaskadi/custom/
