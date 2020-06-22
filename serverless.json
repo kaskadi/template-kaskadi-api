@@ -33,6 +33,9 @@
     "deploymentBucket": {
       "name": "kaskadi-serverless-deployment-bucket"
     },
+    "stackTags" : {
+      "app": "your-app-name"
+    },
     "tags": {
       "app": "your-app-name",
       "service": "${self:service.name}",
