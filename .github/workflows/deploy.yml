@@ -6,7 +6,9 @@ on:
       - 'master'
       - 'release/**'
     paths:
-      - 'serverless.yml'
+      - 'serverless.json'
+      - 'layer/**'
+      - 'lambdas/**'
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -14,6 +16,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install dependencies
       run: npm i
+    - name: Install layer dependencies
+      run: |
+        cd layer/nodejs
+        npm i
     - name: serverless-check
       uses: kaskadi/action-slscli@master
       with:
