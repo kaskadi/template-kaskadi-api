@@ -7,7 +7,7 @@
     "test": "echo \"No test script defined.\"",
     "preinstall": "./tools/install.sh",
     "dev": "export NODE_PATH=./layer/nodejs/node_modules && sls offline",
-    "add-lambda": "node ./tools/add/add-lambda/add-lambda.js",
+    "add-lambda": "node ./tools/add-lambda/add-lambda.js",
     "update-version": "node ./tools/update-version/update-version.js"
   },
   "repository": {
