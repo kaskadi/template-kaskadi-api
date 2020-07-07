@@ -1,7 +1,5 @@
-const fs = require('fs')
-
-module.exports = (folders) => {
-  folders.forEach(folder => {
+module.exports = (folders, fs) => {
+  for (const folder of folders) {
     fs.mkdirSync(folder)
-  })
+  }
 }

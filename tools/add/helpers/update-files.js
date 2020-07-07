@@ -1,12 +1,10 @@
-const fs = require('fs')
-
-module.exports = (updates) => {
-  updates.forEach(update => {
-    replaceNameInFile(update.path, update.placeholder, update.value)
-  })
+module.exports = (updates, fs) => {
+  for (const update of updates) {
+    replaceNameInFile(update.path, update.placeholder, update.value, fs)
+  }
 }
 
-function replaceNameInFile (fileName, oldName, newName) {
+function replaceNameInFile (fileName, oldName, newName, fs) {
   const oldNameRegex = new RegExp(oldName, 'g')
   if (fs.existsSync(fileName)) {
     const file = fs.readFileSync(fileName, 'utf8')

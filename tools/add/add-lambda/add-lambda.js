@@ -1,3 +1,4 @@
+const fs = require('fs')
 const checkArgs = require('../helpers/check-args.js')
 const getArgs = require('../helpers/get-args.js')
 const createFolders = require('../helpers/create-folders.js')
@@ -6,14 +7,15 @@ const updateFiles = require('../helpers/update-files.js')
 const appendLambda = require('../helpers/append.js')
 
 const args = process.argv.slice(2)
+const argsName = ['name', 'method', 'path']
 checkArgs({
-  argsName: ['name', 'method', 'path'],
+  argsName,
   semIndex: ['first', 'second', 'third']
 }, args)
-const data = getArgs(['name', 'method', 'path'], args)
+const data = getArgs(argsName, args)
 const pathToTool = 'tools/add/add-lambda'
 const pathToLambda = `lambdas/${data.name}`
-createFolders([pathToLambda])
+createFolders([pathToLambda], fs)
 copyFiles([
   {
     src: `${pathToTool}/data/handler.js`,
@@ -24,10 +26,10 @@ copyFiles([
     dest: `${pathToLambda}/package.json`
   },
   {
-    src: `${pathToTool}/data/serverless.json`,
-    dest: `${pathToLambda}/serverless.json`
+    src: `${pathToTool}/data/serverless.yml`,
+    dest: `${pathToLambda}/serverless.yml`
   }
-])
+], fs)
 updateFiles([
   {
     path: `${pathToLambda}/package.json`,
@@ -35,23 +37,23 @@ updateFiles([
     value: data.name
   },
   {
-    path: `${pathToLambda}/serverless.json`,
+    path: `${pathToLambda}/serverless.yml`,
     placeholder: '{{name}}',
     value: data.name
   },
   {
-    path: `${pathToLambda}/serverless.json`,
+    path: `${pathToLambda}/serverless.yml`,
     placeholder: '{{method}}',
     value: data.method
   },
   {
-    path: `${pathToLambda}/serverless.json`,
+    path: `${pathToLambda}/serverless.yml`,
     placeholder: '{{path}}',
     value: data.path
   }
-])
+], fs)
 appendLambda({
   prop: 'functions',
   key: data.name,
   path: pathToLambda
-})
+}, fs)
