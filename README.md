@@ -34,26 +34,11 @@ It is known that this action sometimes does not run (see [here](https://github.c
 **Checklist (delete items when done)**
 - create a new repository and choose this repository as template
 - clone the new repository to a local working copy
-- set secrets up ([help](#Set-secrets-up))
 - install all dependencies via `npm i`
 - configure your API in its `serverless.yml` ([here](./serverless.yml)) config file for deployment
 - when you feel like your API is ready for deployment, go [here](./.github/workflows/deploy.yml) and change the `command` field with `--version` value to `deploy -v`
 
 **Attention:** if you wish to use kaskadi's CLI tools, make sure to have `kaskadi-cli` installed globally (`npm i -g kaskadi-cli`)
-
-## Set secrets up
-
-Before pushing for the first time, please setup secrets on this repository.
-
-**Steps:**
-- go to your [repositorys secrets setting](../../settings/secrets)
-- click on _Add a new secret_ for each secret you want to add
-
-**What secrets need to be set:**
-- `AWS_KEY_ID`
-- `AWS_KEY_SECRET`
-
-`AWS_KEY_ID` & `AWS_KEY_SECRET`: those are the credentials of a role which has enough permission to publish a new API.
 
 ****
 
