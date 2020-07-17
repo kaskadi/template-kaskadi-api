@@ -6,7 +6,7 @@ on:
       - 'master'
       - 'release/**'
     paths:
-      - 'serverless.json'
+      - 'serverless.yml'
       - 'layer/**'
       - 'lambdas/**'
 jobs:
