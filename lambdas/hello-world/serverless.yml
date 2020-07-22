@@ -1,5 +1,5 @@
 handler: lambdas/hello-world/index.handler
-name: ${self:service.name}-hello-world-lambda
+name: hello-world
 layers:
   - { Ref: ApiLayerLambdaLayer }
 package:

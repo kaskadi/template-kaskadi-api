@@ -1,5 +1,5 @@
 handler: lambdas/{{name}}/{{name}}.handler
-name: ${self:service.name}-{{name}}-lambda
+name: {{name}}
 layers:
   - { Ref: ApiLayerLambdaLayer }
 package:
