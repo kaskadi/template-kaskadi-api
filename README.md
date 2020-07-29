@@ -5,6 +5,16 @@
 <!-- Only for branches which are not release/** or master -->
 <!-- ![](https://img.shields.io/github/workflow/status/kaskadi/template-kaskadi-api/syntax-test?label=syntax-test&logo=serverless) -->
 
+**CodeClimate**
+
+[![](https://img.shields.io/codeclimate/maintainability/kaskadi/template-kaskadi-api?label=maintainability&logo=Code%20Climate)](https://codeclimate.com/github/kaskadi/template-kaskadi-api)
+[![](https://img.shields.io/codeclimate/tech-debt/kaskadi/template-kaskadi-api?label=technical%20debt&logo=Code%20Climate)](https://codeclimate.com/github/kaskadi/template-kaskadi-api)
+[![](https://img.shields.io/codeclimate/coverage/kaskadi/template-kaskadi-api?label=test%20coverage&logo=Code%20Climate)](https://codeclimate.com/github/kaskadi/template-kaskadi-api)
+
+**LGTM**
+
+[![](https://img.shields.io/lgtm/grade/javascript/github/kaskadi/template-kaskadi-api?label=code%20quality&logo=LGTM)](https://lgtm.com/projects/g/kaskadi/template-kaskadi-api/?mode=list&logo=LGTM)
+
 :point_right: **Badges here** :point_left:
 
 ****
