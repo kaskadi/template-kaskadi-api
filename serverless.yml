@@ -19,6 +19,8 @@ provider:
   runtime: nodejs12.x
   stackName: ${self:service.name}-stack
   apiName: ${self:service.name}
+  apiGateway:
+    description: Template API
   stage: ${opt:stage, 'prod'}
   region: eu-central-1
   deploymentBucket:
