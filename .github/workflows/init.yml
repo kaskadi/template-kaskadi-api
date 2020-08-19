@@ -3,8 +3,8 @@ on: push
 jobs:
   init:
     runs-on: ubuntu-latest
+    if: github.repository != 'kaskadi/template-kaskadi-api'
     steps:
     - uses: actions/checkout@v2
     - name: Init
-      if: github.repository != 'kaskadi/template-kaskadi-api'
       run: bash .github/workflows/scripts/init.sh
