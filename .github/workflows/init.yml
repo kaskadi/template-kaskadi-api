@@ -1,9 +1,10 @@
 name: init
-on: create
+on: push
 jobs:
   init:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Init
+      if: github.event.before == '0000000000000000000000000000000000000000'
       run: bash .github/workflows/scripts/init.sh
