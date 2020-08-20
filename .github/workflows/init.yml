@@ -6,5 +6,13 @@ jobs:
     if: github.repository != 'kaskadi/template-kaskadi-api'
     steps:
     - uses: actions/checkout@v2
+    - name: Import GPG key for kaskadi-bot
+      uses: crazy-max/ghaction-import-gpg@v2
+      with:
+        git_user_signingkey: true
+        git_commit_gpgsign: true
+      env:
+        GPG_PRIVATE_KEY: ${{ secrets.KASKADI_BOT_GPG_PRIVATE_KEY }}
+        PASSPHRASE: ${{ secrets.KASKADI_BOT_GPG_PRIVATE_PASSPHRASE }}
     - name: Init
       run: bash .github/workflows/scripts/init.sh
