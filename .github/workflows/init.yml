@@ -14,5 +14,7 @@ jobs:
       env:
         GPG_PRIVATE_KEY: ${{ secrets.KASKADI_BOT_GPG_PRIVATE_KEY }}
         PASSPHRASE: ${{ secrets.KASKADI_BOT_GPG_PRIVATE_PASSPHRASE }}
-    - name: Init
-      run: bash .github/workflows/scripts/init.sh
+    - name: Initialize repository
+      uses: kaskadi/action-init@master
+      with:
+        repoType: 'api'
