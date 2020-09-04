@@ -5,6 +5,7 @@
   "main": "serverless.yml",
   "scripts": {
     "test": "echo \"No test script defined.\"",
+    "coverage": "echo \"No coverage script defined.\"",
     "lint": "standard --fix",
     "preinstall": "./tools/install.sh",
     "dev": "export NODE_PATH=./layer/nodejs/node_modules && sls offline",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.1.1",
+    "nyc": "^15.1.0",
     "serverless-offline": "^6.4.0",
     "standard": "^14.3.4",
     "yaml": "^1.10.0"
