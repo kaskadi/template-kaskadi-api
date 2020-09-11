@@ -2,8 +2,7 @@
 
 [![](https://img.shields.io/github/workflow/status/kaskadi/template-kaskadi-api/deploy?label=deployed&logo=Amazon%20AWS)](https://github.com/kaskadi/template-kaskadi-api/actions?query=workflow%3Adeploy)
 [![](https://img.shields.io/github/workflow/status/kaskadi/template-kaskadi-api/build?label=build&logo=mocha)](https://github.com/kaskadi/template-kaskadi-api/actions?query=workflow%3Abuild)
-<!-- Only for branches which are not release/** or master -->
-<!-- ![](https://img.shields.io/github/workflow/status/kaskadi/template-kaskadi-api/syntax-test?label=syntax-test&logo=serverless) -->
+[![](https://img.shields.io/github/workflow/status/kaskadi/template-kaskadi-api/syntax-check?label=syntax-check&logo=serverless)](https://github.com/kaskadi/template-kaskadi-api/actions?query=workflow%3Asyntax-check)
 
 **CodeClimate**
 
