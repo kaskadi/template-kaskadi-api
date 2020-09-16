@@ -20,7 +20,7 @@
 
 # Testing
 
-`mocha`, `chai` & `standard` are available as dev dependencies.
+`mocha`, `chai`, `nyc`, `serverless-offline` & `standard` are available as dev dependencies.
 
 A `build` workflow (see [here](./.github/workflows/build.yml)) is running on `pull request` and will execute your test suite before allowing you to merge your PR. It also has a `coverage` job already prepared that you can comment out as soon as your testing is in place and your `REPORTER_ID` is in the repository secrets. This is the ID on _Code Climate_ used for uploading code coverage reports.
 
