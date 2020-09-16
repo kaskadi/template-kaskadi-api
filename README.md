@@ -32,7 +32,7 @@ Along `build`, a `syntax-check` workflow will also run to check your `serverless
 
 Deploying to AWS is done automatically via a `deploy` workflow (see [here](./.github/workflows/deploy.yml)). This workflow will run on `push` to `master`. Before publishing, it checks for syntax error in your `serverless.yml` file.
 
-**You'll have to switch the command from `--version` to `deploy -v` to actually deploy!**
+**You'll have to switch the command from `--version` to `deploy -v` in the [workflow configuration file](./.github/workflows/deploy.yml) to actually deploy!**
 
 **Warning: you may need to manually deploy the first time via `Serverless` CLI locally.**
 
