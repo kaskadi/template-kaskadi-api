@@ -18,31 +18,38 @@
 
 ****
 
-❌ **This section can be deleted when done with all the preliminary work** ❌
+# Testing
 
-# :computer: Creating a new API from this template :computer:
+`mocha`, `chai` & `standard` are available as dev dependencies.
 
-**Checklist (delete items when done)**
-- create a new repository and choose this repository as template
-- clone the new repository to a local working copy
-- install all dependencies via `npm i`
-- configure your API in its `serverless.yml` ([here](./serverless.yml)) config file for deployment
-- when you feel like your API is ready for deployment, go [here](./.github/workflows/deploy.yml) and change the `command` field with `--version` value to `deploy -v`
+A `build` workflow (see [here](./.github/workflows/build.yml)) is running on `pull request` and will execute your test suite before allowing you to merge your PR. It also has a `coverage` job already prepared that you can comment out as soon as your testing is in place and your `REPORTER_ID` is in the repository secrets. This is the ID on _Code Climate_ used for uploading code coverage reports.
 
-**Attention:** if you wish to use kaskadi's CLI tools, make sure to have `kaskadi-cli` installed globally (`npm i -g kaskadi-cli`)
+Along `build`, a `syntax-check` workflow will also run to check your `serverless.yml` file syntax.
 
 ****
 
-# Add new endpoints
+# Deploying
+
+Deploying to AWS is done automatically via a `deploy` workflow (see [here](./.github/workflows/deploy.yml)). This workflow will run on `push` to `master`. Before publishing, it checks for syntax error in your `serverless.yml` file.
+
+**Warning: you may need to manually deploy the first time via `Serverless` CLI locally.**
+
+****
+
+# Tools
+
+## Add new endpoints
 
 In order to add new endpoints:
 1. Go to the root of your API repository
 2. Run `npm run add-lambda <lambda_name> <http_method> <path/to/your/lambda>`
-3. You can start working on your endpoint inside of `lambdas/<lambda_name>` that should be created once the command has ran
+3. Your endpoint is now located under `lambdas/<lambda_name>` and you can start developing!
 
-# Upgrade API version
+## Upgrade API version
 
 To update your API version, run `npm run upgrade-version <version_option>`. This takes the same argument as `npm version` (see [here](https://docs.npmjs.com/cli/version)). It will update for you the main `package.json` as well as `serverless.json` but also all `package.json` for all endpoints.
+
+****
 
 # Using custom domain for your API
 
@@ -65,5 +72,7 @@ If the custom domain you wish to use hasn't been created yet (list of custom dom
 3. Add a base path you wish to map your API to for this domain and then select the API & its stage in the dropdown menus
 
 **Attention:** you can only use an existing custom domain if this domain doesn't have already an empty path as base path.
+
+****
 
 :point_down: **Your documentation here** :point_down:
