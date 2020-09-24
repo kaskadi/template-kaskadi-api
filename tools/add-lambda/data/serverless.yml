@@ -1,5 +1,6 @@
 handler: lambdas/{{name}}/{{name}}.handler
 name: {{name}}
+# customize as needed to connect your lambda function to layers
 layers:
   - { Ref: ApiLayerLambdaLayer }
 package:

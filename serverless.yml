@@ -32,5 +32,6 @@ provider:
     type: api, s3, sns, etc.
 functions:
   HelloWorld: ${file(./lambdas/hello-world/serverless.yml)}
+# customize as needed if you want to use layers for your API
 layers:
   ApiLayer: ${file(./layer/serverless.yml)}

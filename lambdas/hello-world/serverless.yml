@@ -1,5 +1,6 @@
 handler: lambdas/hello-world/index.handler
 name: hello-world
+# customize as needed to connect your lambda function to layers
 layers:
   - { Ref: ApiLayerLambdaLayer }
 package:
