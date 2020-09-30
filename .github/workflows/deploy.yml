@@ -23,6 +23,9 @@ jobs:
       env:
         GPG_PRIVATE_KEY: ${{ secrets.KASKADI_BOT_GPG_PRIVATE_KEY }}
         PASSPHRASE: ${{ secrets.KASKADI_BOT_GPG_PRIVATE_PASSPHRASE }}
+    # we need to install dependencies because we use Serverless plugins so if they are not installed printing the SLS file inside of the action will fail
+    - name: Install dependencies
+      run: npm i
     - name: Generate documentation
       uses: kaskadi/action-generate-docs@master
       with:
