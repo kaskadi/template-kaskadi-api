@@ -1,3 +1,7 @@
+![](https://img.shields.io/github/package-json/v/kaskadi/template-kaskadi-api)
+![](https://img.shields.io/badge/code--style-standard-blue)
+![](https://img.shields.io/github/license/kaskadi/template-kaskadi-api?color=blue)
+
 **GitHub Actions workflows status**
 
 [![](https://img.shields.io/github/workflow/status/kaskadi/template-kaskadi-api/deploy?label=deployed&logo=Amazon%20AWS)](https://github.com/kaskadi/template-kaskadi-api/actions?query=workflow%3Adeploy)
@@ -14,7 +18,7 @@
 
 [![](https://img.shields.io/lgtm/grade/javascript/github/kaskadi/template-kaskadi-api?label=code%20quality&logo=LGTM)](https://lgtm.com/projects/g/kaskadi/template-kaskadi-api/?mode=list&logo=LGTM)
 
-:point_right: **Badges here** :point_left:
+<!-- You can add badges inside of this section if you'd like -->
 
 ****
 
@@ -25,6 +29,16 @@
 A `build` workflow (see [here](./.github/workflows/build.yml)) is running on `pull request` and will execute your test suite before allowing you to merge your PR. It also has a `coverage` job already prepared that you can comment out as soon as your testing is in place and your `REPORTER_ID` is in the repository secrets. This is the ID on _Code Climate_ used for uploading code coverage reports.
 
 Along `build`, a `syntax-check` workflow will also run to check your `serverless.yml` file syntax.
+
+****
+
+# Documentation
+
+This repository comes with a `generate-docs` job inside of the `deploy` workflow that generates documentation automatically for you by reading your main `serverless.yml` configuration file and extracting meta data of all endpoints you defined. See [here](https://github.com/kaskadi/action-generate-docs) for more information.
+
+If you would like to see the workflow configuration, head [here](./.github/workflows/deploy.yml).
+
+You can configure the template used to generate the action documentation [here](./docs/template.md).
 
 ****
 
@@ -77,4 +91,86 @@ If the custom domain you wish to use hasn't been created yet (list of custom dom
 
 ****
 
-:point_down: **Your documentation here** :point_down:
+<!-- automatically generated documentation will be placed in here -->
+# API endpoints
+
+The following endpoints are defined in this API:
+- [/hello](#/hello)
+
+## `/hello` (target lambda → [hello-world](#hello-world))
+
+Supported methods:
+- [GET](#GET)
+
+### `GET`
+
+**Description:**
+
+hello world placeholder endpoint
+
+**Query string parameters:**
+
+|   Key  | Default | Description |
+| :----: | :-----: | :---------- |
+| `key1` |         | first key   |
+| `key2` |   `35`  | second key  |
+
+**Request body:**
+
+|    Key   | Default | Description       |
+| :------: | :-----: | :---------------- |
+| `param1` | `hello` | first body param  |
+| `param2` |  `true` | second body param |
+
+_Example request:_
+
+```HTTP
+GET /hello?key1=key1_value&key2=key2_value
+
+{
+  "param1": "param1_value",
+  "param2": "param2_value"
+}
+```
+
+# API resources
+
+The following lambda functions are used in this API:
+- [hello-world](#hello-world)
+
+The following layers are used in this API:
+- [template-kaskadi-api-layer](#template-kaskadi-api-layer)
+
+## hello-world <a name="hello-world"></a>
+
+|     Name    | Sources                | Timeout |                  Handler                  | Layers                                                                      |
+| :---------: | :--------------------- | :-----: | :---------------------------------------: | :-------------------------------------------------------------------------- |
+| hello-world | <ul><li>HTTP</li></ul> | default | [handler](./lambdas/hello-world/index.js) | <ul><li>[template-kaskadi-api-layer](#template-kaskadi-api-layer)</li></ul> |
+
+See [configuration file](./serverless.yml) for more details.
+
+## template-kaskadi-api-layer <a name="template-kaskadi-api-layer"></a>
+
+### Description
+
+Layer for template-kaskadi-api
+
+### Dependencies
+
+- `template-kaskadi-api-utils` (local utility)
+
+See [configuration file](./serverless.yml) for more details.
+
+# Stack tags
+
+You can use any tags (and their respective values) visible below to find ressources related to this stack on AWS. See [here](https://docs.amazonaws.cn/en_us/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) for more details.
+
+| Tag          | Value                |
+| :----------- | :------------------- |
+| app          | your-app-name        |
+| service      | template-kaskadi-api |
+| logical-unit | api-logical-unit     |
+| type         | s3, sns, etc.        |
+<!-- automatically generated documentation will be placed in here -->
+
+<!-- You can customize this template as you'd like! -->
