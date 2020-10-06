@@ -2,17 +2,25 @@
 
 const inquirer = require('inquirer');
 
-function filterMethod (input) {
+function filterInput (input) {
   return input.toLowerCase().trim();
 }
 
 function validateMethod(input) {
   const validMethods = ['get', 'head', 'post', 'put', 'delete', 'connect', 'options', 'trace', 'patch']
-  return validMethods.includes(filterMethod(input)) || 'This is not a valid http method.'
+  return validMethods.includes(filterInput(input)) || 'This is not a valid http method.'
 }
 
-function validateInput(input) {
-  return input !== '' || 'Please provide an input.';
+function validateName(input) {
+  const regexp = new RegExp(/^[a-z\-]*$/, 'g')
+  const filteredInput = filterInput(input)
+  return regexp.test(filteredInput) || 'Please provide a valid name - should only contain "-" as special character';
+}
+
+function validatePath(input) {
+  const regexp = new RegExp(/^[a-z\-\/]*$/, 'g')
+  const filteredInput = filterInput(input)
+  return regexp.test(filteredInput) || 'Please provide a valid path - should only contain "-" and "/" as special character';
 }
 
 const questions = [
@@ -20,20 +28,22 @@ const questions = [
     type: 'input',
     name: 'name',
     message: "What's the name?",
-    validate: validateInput
+    validate: validateName,
+    filter: filterInput
   },
   {
     type: 'input',
     name: 'method',
     message: "What's the method?",
     validate: validateMethod,
-    filter: filterMethod
+    filter: filterInput
   },
   {
     type: 'input',
     name: 'path',
     message: "What's the path?",
-    validate: validateInput
+    validate: validatePath,
+    filter: filterInput
   },
 ];
 
