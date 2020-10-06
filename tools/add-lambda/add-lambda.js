@@ -6,7 +6,7 @@ const updateFiles = require('./helpers/update-files.js')
 const appendLambda = require('./helpers/append.js')
 
 async function main () {
-  const { name, method, path } = await getData();
+  const { name, method, path } = await getData()
   const pathToTool = 'tools/add-lambda'
   const pathToLambda = `lambdas/${name}`
   createFolders([pathToLambda], fs)
