@@ -1,26 +1,26 @@
-'use strict';
+'use strict'
 
-const inquirer = require('inquirer');
+const inquirer = require('inquirer')
 
 function filterInput (input) {
-  return input.toLowerCase().trim();
+  return input.toLowerCase().trim()
 }
 
-function validateMethod(input) {
+function validateMethod (input) {
   const validMethods = ['get', 'head', 'post', 'put', 'delete', 'connect', 'options', 'trace', 'patch']
   return validMethods.includes(filterInput(input)) || 'This is not a valid http method.'
 }
 
-function validateName(input) {
-  const regexp = new RegExp(/^[a-z\-]*$/, 'g')
+function validateName (input) {
+  const regexp = new RegExp(/^[a-z-]*$/, 'g')
   const filteredInput = filterInput(input)
-  return regexp.test(filteredInput) || 'Please provide a valid name - should only contain "-" as special character';
+  return regexp.test(filteredInput) || 'Please provide a valid name - should only contain "-" as special character'
 }
 
-function validatePath(input) {
-  const regexp = new RegExp(/^[a-z\-\/]*$/, 'g')
+function validatePath (input) {
+  const regexp = new RegExp(/^[a-z\-/]*$/, 'g')
   const filteredInput = filterInput(input)
-  return regexp.test(filteredInput) || 'Please provide a valid path - should only contain "-" and "/" as special character';
+  return regexp.test(filteredInput) || 'Please provide a valid path - should only contain "-" and "/" as special character'
 }
 
 const questions = [
@@ -44,8 +44,8 @@ const questions = [
     message: "What's the path?",
     validate: validatePath,
     filter: filterInput
-  },
-];
+  }
+]
 
 module.exports = () => {
   return inquirer.prompt(questions)
