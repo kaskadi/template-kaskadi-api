@@ -58,7 +58,7 @@ Deploying to AWS is done automatically via a `deploy` workflow (see [here](./.gi
 
 In order to add new endpoints:
 1. Go to the root of your API repository
-2. Run `npm run add-lambda <lambda_name> <http_method> <path/to/your/lambda>`
+2. Run `npm run add-lambda` (this will prompt you for new lambda data)
 3. Your endpoint is now located under `lambdas/<lambda_name>` and you can start developing!
 
 ## Upgrade API version
