@@ -8,6 +8,10 @@ plugins:
   - serverless-aws-documentation
   - serverless-offline
 custom:
+  # this field defines the hostname and root that will be used to build the API base URL in the documentation
+  kaskadi-docs:
+    hostname: api.template.com # this defaults to API_DOMAIN if nothing is specified
+    root: logical-unit
   documentation:
     api:
       info:
