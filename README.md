@@ -94,19 +94,25 @@ If the custom domain you wish to use hasn't been created yet (list of custom dom
 <!-- automatically generated documentation will be placed in here -->
 # API endpoints
 
+The origin and root path for this API is: `https://api.template.com/logical-unit`
+
 The following endpoints are defined in this API:
 - [/hello](#/hello)
 
-## `/hello` (target lambda → [hello-world](#hello-world)) <a name="/hello"></a>
+## `/hello` <a name="/hello"></a>
 
 Supported methods:
-- [GET](#GET)
+- [GET](#hello-GET)
 
-### `GET`
+### `GET` (target lambda → [hello-world](#hello-world)) <a name="hello-GET"></a>
 
 **Description:**
 
 hello world placeholder endpoint
+
+**Authorization:**
+
+No authorizer found for this method.
 
 **Query string parameters:**
 
@@ -122,16 +128,42 @@ hello world placeholder endpoint
 | `param1` | `hello` | first body param  |
 | `param2` |  `true` | second body param |
 
-_Example request:_
+**Examples:**
+
+<details>
+<summary>Example #1</summary>
+
+_Request:_
 
 ```HTTP
-GET /hello?key1=key1_value&key2=key2_value
+GET https://api.template.com/logical-unit/hello?key1=hello&key2=test
 
+Headers:
+Content-Type: application/json
+
+Body:
 {
-  "param1": "param1_value",
-  "param2": "param2_value"
+  "param1": "does not make sense in GET",
+  "param2": "but this is a test"
 }
 ```
+
+_Response:_
+
+```HTTP
+Status code:
+200
+
+Headers:
+x-kaskadi-data: some data
+
+Body:
+{
+  "resParam1": "hello",
+  "resParam2": "test"
+}
+```
+</details>
 
 # API resources
 
