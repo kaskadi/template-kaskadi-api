@@ -24,6 +24,7 @@ jobs:
     - name: Install dependencies
       run: npm i
     - name: serverless check
+      if: github.repository != 'kaskadi/template-kaskadi-api' # this is done to skip this step to avoid the common Serverless API Gateway error when the stack hasn't been deployed yet (template won't be deployed)
       uses: serverless/github-action@master
       with:
         args: deploy --noDeploy
