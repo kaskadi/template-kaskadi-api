@@ -35,9 +35,11 @@ Along `build`, a `syntax-check` workflow will also run to check your `serverless
 
 # Documentation
 
-This repository comes with a `generate-docs` job inside of the `deploy` workflow that generates documentation automatically for you by reading your main `serverless.yml` configuration file and extracting meta data of all endpoints you defined. See [here](https://github.com/kaskadi/action-generate-docs) for more information.
+This repository comes with a `generate-docs` workflow that generates documentation automatically for you by reading your main `serverless.yml` configuration file and extracting meta data of all endpoints you defined. See [here](https://github.com/kaskadi/action-generate-docs) and [there](./serverless.yml) for more information.
 
-If you would like to see the workflow configuration, head [here](./.github/workflows/deploy.yml).
+Before generating the documentation, the workflow will check for syntax error in your `serverless.yml` file.
+
+If you would like to see the workflow configuration, head [here](./.github/workflows/generate-docs.yml).
 
 You can configure the template used to generate the action documentation [here](./docs/template.md).
 
