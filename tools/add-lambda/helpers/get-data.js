@@ -11,16 +11,10 @@ function validateMethod (input) {
   return validMethods.includes(filterInput(input)) || 'This is not a valid http method.'
 }
 
-function validateName (input) {
-  const regexp = new RegExp(/^[a-z-]*$/, 'g')
-  const filteredInput = filterInput(input)
-  return regexp.test(filteredInput) || 'Please provide a valid name - should only contain "-" as special character'
-}
-
-function validatePath (input) {
-  const regexp = new RegExp(/^[a-z\-/]*$/, 'g')
-  const filteredInput = filterInput(input)
-  return regexp.test(filteredInput) || 'Please provide a valid path - should only contain "-" and "/" as special character'
+function validate (msg, regexp) {
+  return (input) => {
+    return regexp.test(filterInput(input)) || msg
+  }
 }
 
 const questions = [
@@ -28,7 +22,7 @@ const questions = [
     type: 'input',
     name: 'name',
     message: "What's the name?",
-    validate: validateName,
+    validate: validate('Please provide a valid name - should only contain "-" as special character', /^[a-z-]*$/g),
     filter: filterInput
   },
   {
@@ -42,7 +36,7 @@ const questions = [
     type: 'input',
     name: 'path',
     message: "What's the path?",
-    validate: validatePath,
+    validate: validate('Please provide a valid path - should only contain "-" and "/" as special character', /^[a-z\-/]*$/g),
     filter: filterInput
   }
 ]
