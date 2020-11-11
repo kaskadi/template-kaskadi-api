@@ -5,12 +5,8 @@ const copyFiles = require('./helpers/copy-files.js')
 const updateFiles = require('./helpers/update-files.js')
 const appendLambda = require('./helpers/append.js')
 
-async function main () {
-  const { name, method, path } = await getData()
-  const pathToTool = 'tools/add-lambda'
-  const pathToLambda = `lambdas/${name}`
-  createFolders([pathToLambda], fs)
-  copyFiles([
+function getCopyData (pathToTool, pathToLambda, name) {
+  return [
     {
       src: `${pathToTool}/data/handler.js`,
       dest: `${pathToLambda}/${name}.js`
@@ -23,8 +19,11 @@ async function main () {
       src: `${pathToTool}/data/serverless.yml`,
       dest: `${pathToLambda}/serverless.yml`
     }
-  ], fs)
-  updateFiles([
+  ]
+}
+
+function getUpdateData (pathToLambda, name, method, path) {
+  return [
     {
       path: `${pathToLambda}/package.json`,
       placeholder: '{{name}}',
@@ -45,7 +44,16 @@ async function main () {
       placeholder: '{{path}}',
       value: path
     }
-  ], fs)
+  ]
+}
+
+async function main () {
+  const { name, method, path } = await getData()
+  const pathToTool = 'tools/add-lambda'
+  const pathToLambda = `lambdas/${name}`
+  createFolders([pathToLambda], fs)
+  copyFiles(getCopyData(pathToTool, pathToLambda, name), fs)
+  updateFiles(getUpdateData(pathToLambda, name, method, path), fs)
   appendLambda({
     prop: 'functions',
     key: name,
