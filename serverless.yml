@@ -39,5 +39,3 @@ functions:
 # customize as needed if you want to use layers for your API
 layers:
   ApiLayer: ${file(./layer/serverless.yml)}
-
-# force
