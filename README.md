@@ -15,10 +15,6 @@
 [![](https://img.shields.io/codeclimate/tech-debt/kaskadi/template-kaskadi-api?label=technical%20debt&logo=Code%20Climate)](https://codeclimate.com/github/kaskadi/template-kaskadi-api)
 [![](https://img.shields.io/codeclimate/coverage/kaskadi/template-kaskadi-api?label=test%20coverage&logo=Code%20Climate)](https://codeclimate.com/github/kaskadi/template-kaskadi-api)
 
-**LGTM**
-
-[![](https://img.shields.io/lgtm/grade/javascript/github/kaskadi/template-kaskadi-api?label=code%20quality&logo=LGTM)](https://lgtm.com/projects/g/kaskadi/template-kaskadi-api/?mode=list&logo=LGTM)
-
 <!-- You can add badges inside of this section if you'd like -->
 
 ****
@@ -28,6 +24,8 @@
 `mocha`, `chai`, `nyc`, `serverless-offline` & `standard` are available as dev dependencies.
 
 A `build` workflow (see [here](./.github/workflows/build.yml)) is running on `pull request` and will execute your test suite before allowing you to merge your PR. It also has a `coverage` job already prepared that you can comment out as soon as your testing is in place and your `REPORTER_ID` is in the repository secrets. This is the ID on _Code Climate_ used for uploading code coverage reports.
+
+Beside running your unit tests, this workflow also runs a static code analysis to find any vulnerability in your code. If a vulnerability is found, the workflow will directly fail and a notification will appear in the `Security` tab of your repository.
 
 Along `build`, a `syntax-check` workflow will also run to check your `serverless.yml` file syntax.
 
@@ -47,7 +45,10 @@ You can configure the template used to generate the action documentation [here](
 
 # Deploying
 
-Deploying to AWS is done automatically via a `deploy` workflow (see [here](./.github/workflows/deploy.yml)). This workflow will run on `push` to `master`. Before publishing, it checks for syntax error in your `serverless.yml` file.
+Deploying to AWS is done automatically via a `deploy` workflow (see [here](./.github/workflows/deploy.yml)). This workflow will run on `push`. Before publishing it:
+1. performs a static code analysis of the layer to detect any vulnerabilities. If a vulnerability is found, the workflow will directly fail. A notification will also appear in the `Security` tab of your repository.
+2. checks the syntax of `serverless.yml` for any errors
+3. run any tests you may have set up with `npm test`
 
 **You'll have to switch the command from `--version` to `deploy -v` in the [workflow configuration file](./.github/workflows/deploy.yml) to actually deploy!**
 
