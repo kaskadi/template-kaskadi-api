@@ -18,3 +18,5 @@ jobs:
       uses: kaskadi/action-init@master
       with:
         repoType: 'api'
+      env:
+        CC_TOKEN: ${{ secrets.CC_TOKEN }}
