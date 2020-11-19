@@ -6,7 +6,6 @@
 
 [![Deploy status](https://img.shields.io/github/workflow/status/kaskadi/template-kaskadi-api/deploy?label=deployed&logo=Amazon%20AWS)](https://github.com/kaskadi/template-kaskadi-api/actions?query=workflow%3Adeploy)
 [![Build status](https://img.shields.io/github/workflow/status/kaskadi/template-kaskadi-api/build?label=build&logo=mocha)](https://github.com/kaskadi/template-kaskadi-api/actions?query=workflow%3Abuild)
-[![Syntax check status](https://img.shields.io/github/workflow/status/kaskadi/template-kaskadi-api/syntax-check?label=syntax-check&logo=serverless)](https://github.com/kaskadi/template-kaskadi-api/actions?query=workflow%3Asyntax-check)
 [![Docs generation status](https://img.shields.io/github/workflow/status/kaskadi/template-kaskadi-api/generate-docs?label=docs&logo=read-the-docs)](https://github.com/kaskadi/template-kaskadi-api/actions?query=workflow%3Agenerate-docs)
 
 **CodeClimate**
@@ -31,9 +30,9 @@ When creating a repository from this template, an `init` workflow (see [here](./
 
 A `build` workflow (see [here](./.github/workflows/build.yml)) is running on `pull request` and will execute your test suite before allowing you to merge your PR. It also has a `coverage` job already prepared that you can comment out as soon as your testing is in place and your `REPORTER_ID` is in the repository secrets. This is the ID on _Code Climate_ used for uploading code coverage reports.
 
-Beside running your unit tests, this workflow also runs a static code analysis to find any vulnerability in your code. If a vulnerability is found, the workflow will directly fail and a notification will appear in the `Security` tab of your repository.
+Beside running your unit tests, this workflow runs a static code analysis to find any vulnerability in your code. If a vulnerability is found, a notification will appear in the `Security` tab of your repository.
 
-Along `build`, a `syntax-check` workflow will also run to check your `serverless.yml` file syntax.
+The `build` workflow also runs a `syntax-check` job which checks your `serverless.yml` file syntax.
 
 ****
 
@@ -52,7 +51,7 @@ You can configure the template used to generate the action documentation [here](
 # Deploying
 
 Deploying to AWS is done automatically via a `deploy` workflow (see [here](./.github/workflows/deploy.yml)). This workflow will run on `push`. Before publishing it:
-1. performs a static code analysis of the layer to detect any vulnerabilities. If a vulnerability is found, the workflow will directly fail. A notification will also appear in the `Security` tab of your repository.
+1. performs a static code analysis of the layer to detect any vulnerabilities. If a vulnerability is found, a notification will appear in the `Security` tab of your repository
 2. checks the syntax of `serverless.yml` for any errors
 3. run any tests you may have set up with `npm test`
 
