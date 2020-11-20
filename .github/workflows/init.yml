@@ -20,3 +20,4 @@ jobs:
         repoType: 'api'
       env:
         CC_TOKEN: ${{ secrets.CC_TOKEN }}
+        GH_ACCESS_TOKEN: ${{ secrets.GH_REPO_ACCESS_TOKEN }}
